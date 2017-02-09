@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="text/javascript">
+  function vote(a) {
+    addToNum(a);
+    elementPlusOne("denom");
+    calcAvg();
+    elementPlusOne(a);
+  }
+
+  function reset() {
+    setToZero("num");
+    setToZero("denom");
+    setToZero("avg");
+    setToZero("1");
+    setToZero("2");
+    setToZero("3");
+    setToZero("4");
+    setToZero("5");
+  }
+
+  function setToZero (e) {
+    document.getElementById(e).innerHTML = 0;
+  }
+
+
+  function addToNum(a) {
+    var numstr;
+    numstr = document.getElementById("num").innerHTML;
+    var num;
+    num = Number(numstr) + Number(a);
+    document.getElementById("num").innerHTML = num;
+    }
+
+    function elementPlusOne(e) {
+      var str;
+      str = document.getElementById(e).innerHTML;
+      var int;
+      int = Number(str) + Number(1);
+      document.getElementById(e).innerHTML = int;
+    }
+
+    function calcAvg() {
+      var num;
+      var denom;
+      var avg;
+      num = document.getElementById("num").innerHTML;
+      denom = document.getElementById("denom").innerHTML;
+      var avg = Number(num) / Number(denom);
+      document.getElementById("avg").innerHTML = avg.toFixed(2);
+    }
+
+
+  </script>
+
+</head>
+<body>
+
+<h1>Fist of 5</h1>
+
+<p>Welcome to the fist of 5 team voting tool.</p>
+
+Average: <span id="avg">0</span></br> </br>
+<p hidden="true" id="num">0</p>
+<p hidden="true" id="denom">0</p>
+
+<img src="https://image.freepik.com/free-icon/five-fingers-silhouette_318-39194.jpg" height="100" width="100" onclick="vote(5);"></img> Count: <span id="5">0</span></br>
+<img src="http://icons.iconarchive.com/icons/icons8/ios7/256/Hands-Four-Fingers-icon.png" height="100" width="100" onclick="vote(4);"></img> Count: <span id="4">0</span></br>
+<img src="https://img.clipartfest.com/f52adb1b830c85aeb5774b0924cc43c5_bd02b5e35eba6be90a97704a61737c-three-fingers-clipart_256-256.png" height="100" width="100" onclick="vote(3);"></img> Count: <span id="3">0</span></br>
+<img src="http://icons.iconarchive.com/icons/icons8/ios7/256/Hands-Two-Fingers-icon.png" height="100" width="100" onclick="vote(2);"></img> Count: <span id="2">0</span></br>
+<img src="https://image.freepik.com/free-icon/one-finger-of-a-hand-ios-7-interface-symbol_318-39060.jpg" height="100" width="100" onclick="vote(1);"></img> Count: <span id="1">0</span></br>
+</br>
+<button onclick="reset();">Reset</button>
+</body>
+</html>
